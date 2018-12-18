@@ -1,6 +1,18 @@
 <?php
   require_once("funciones.php");
 
+if ($_FILES["imagen"]["error"] != 0) {
+  echo "Hubo un error al cargar la imagen <br>";
+}else {
+  $ext = pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
+
+  if ($ext != "jpg" && $ext != "jpeg" && $ext != "png") {
+    echo "La imagen debe ser de formato jpg, jpeg o png <br>";
+  }else{
+    move_uploaded_file($_FILES["imagen"]["tmp_name"], "archivos/imagen." . $ext);
+  }
+}
+
   $errores = [];
 
   $usuarioDefault = "";
@@ -11,7 +23,7 @@
     $errores = ValidarRegistracion();
 
     if(count($errores) == 0) {
-
+      header("location:inicio.php");exit;
     }
 
     $usuarioDefault = $_POST["usuario"];
@@ -24,7 +36,7 @@
   <head>
     <meta charset="utf-8">
     <title>SportCity</title>
-    <link rel="stylesheet" href="css/register-login.css">
+    <link rel="stylesheet" href="css registracion/register-login.css">
     <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
   </head>
@@ -42,7 +54,7 @@
       <div class="formularios">
       <div class="formulario1">
       <p class="is">Iniciar sesión</p>
-      <form class="login" action="register.login.php" method="POST">
+      <form class="login" action="register.login.php" method="POST" enctype="multipart/form-data">
         <p>
           <input id="user" type="text" name="user" value="" placeholder="Usuario">
         </p>
@@ -62,10 +74,13 @@
         <div class="formulario2">
       <p class="regis">Registrate</p>
       <div class="registro">
-        <form class="register" action="register.login.php" method="POST">
+        <form class="register" action="register.login.php" method="POST" enctype="multipart/form-data">
           <p>
             <input id="usuario" type="text" name="usuario" value="<?=$usuarioDefault?>" placeholder="Mi usuario">
           </p>
+          <div class="pass">
+            <input type="file" name="imagen" value="">
+          </div>
           <div class="pass">
           <p>
             <input id="email" type="text" name="email" value="<?=$emailDefault?>" placeholder="Mi correo electronico">
