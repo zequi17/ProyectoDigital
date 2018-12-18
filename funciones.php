@@ -13,7 +13,9 @@ function validarRegistracion() {
     $errores["email"] = "Es obligatorio llenar el campo Correo Electronico.";
   }else if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
     $errores["email"] = "Los correos no coinciden.";
-  }
+  }else if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+    $errores["email"] = "El email debe ser una casilla valida.";
+}
 
     if (estaVacio($_POST["confirmemail"])) {
       $errores["confirmemail"] = "Es obligatorio llenar el campo de Confirmacion del Correo Electronico.";
@@ -24,7 +26,6 @@ function validarRegistracion() {
   if($_POST["email"] != "" && $_POST["confirmemail"] != "" && $_POST["email"] != $_POST["confirmemail"]){
     $errores["email"] = "Los correos no coinciden.";
   }
-
   if (estaVacio($_POST["contraseña"])) {
     $errores["contraseña"] = "Es obligatorio llenar el campo Contraseña.";
   }
