@@ -1,15 +1,15 @@
 <?php
   require_once("funciones.php");
 
-if ($_FILES["imagen"]["error"] != 0) {
+if ($_FILES["avatar"]["error"] != 0) {
   echo "Hubo un error al cargar la imagen <br>";
 }else {
-  $ext = pathinfo($_FILES["imagen"]["name"], PATHINFO_EXTENSION);
+  $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
 
   if ($ext != "jpg" && $ext != "jpeg" && $ext != "png") {
     echo "La imagen debe ser de formato jpg, jpeg o png <br>";
   }else{
-    move_uploaded_file($_FILES["imagen"]["tmp_name"], "archivos/imagen." . $ext);
+    move_uploaded_file($_FILES["avatar"]["tmp_name"], "archivos/avatar." . $ext);
   }
 }
 
@@ -23,12 +23,21 @@ if ($_FILES["imagen"]["error"] != 0) {
     $errores = ValidarRegistracion();
 
     if(count($errores) == 0) {
+
+
+      $usuario = armarUsuario();
+
+      guardarUsuario($usuario);
+
+      guardarAvatar($usuario);
+
       header("location:inicio.php");exit;
     }
 
     $usuarioDefault = $_POST["usuario"];
     $emailDefault = $_POST["email"];
     $confirmemailDefault = $_POST["confirmemail"];
+
   }
  ?>
 <!DOCTYPE html>
@@ -79,7 +88,7 @@ if ($_FILES["imagen"]["error"] != 0) {
             <input id="usuario" type="text" name="usuario" value="<?=$usuarioDefault?>" placeholder="Mi usuario">
           </p>
           <div class="pass">
-            <input type="file" name="imagen" value="">
+            <input type="file" name="avatar" value="">
           </div>
           <div class="pass">
           <p>
