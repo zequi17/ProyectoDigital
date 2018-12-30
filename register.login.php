@@ -59,11 +59,9 @@ if ($_FILES["avatar"]["error"] != 0) {
           </li>
         <?php endforeach; ?>
       </ul>
-      <div class="formularios">
-        <div class="formulario2">
+        <div class="formularioRegis" style="padding-left: 193px;">
           <!-- REGISTRACION -->
       <p class="regis">Registrate</p>
-      <div class="registro">
         <form class="register" action="register.login.php" method="POST" enctype="multipart/form-data">
           <p>
             <input id="usuario" type="text" name="usuario" value="<?=$usuarioDefault?>" placeholder="Mi usuario">
@@ -85,13 +83,14 @@ if ($_FILES["avatar"]["error"] != 0) {
           <p>
             <input id="contraseña" type="password" name="contraseña" value="" placeholder="Mi contraseña">
           </p>
+          </div>
           <div class="boton">
           <button type="submit" name="button">Crear perfil</button>
           </div>
-          </div>
+          <p .iniciarSesion>
+            ¿Ya tienes una cuenta? <a href="login.php" style="color: blue;">Iniciar sesión</a>
+          </p>
         </form><br><br><br><br>
-      </div>
-      </div>
       </div>
       <footer>
         <ul>

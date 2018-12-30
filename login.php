@@ -28,10 +28,7 @@ if ($_POST){
           <img src="images/Fondo.jpg" alt="fondo">
     <div class="padre">
       <a href="" class="titulo">SportsWear</a>
-    
-      <div class="formularios">
-      <div class="formulario1">
-
+      <div class="formularioLogin" style="padding-left: 193px;">
       <p class="is">Iniciar sesión</p>
       <form class="login" action="register.login.php" method="POST" enctype="multipart/form-data">
         <p>
@@ -46,9 +43,7 @@ if ($_POST){
       <div class="boton">
       <button type="submit" name="button">Inciciar sesión</button>
       </div>
-      </div>
         </form><br><br><br><br>
-      </div>
       </div>
       <footer>
         <ul>
