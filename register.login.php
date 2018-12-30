@@ -88,7 +88,7 @@ if ($_FILES["avatar"]["error"] != 0) {
           <button type="submit" name="button">Crear perfil</button>
           </div>
           <p .iniciarSesion>
-            ¿Ya tienes una cuenta? <a href="login.php" style="color: blue;">Iniciar sesión</a>
+            ¿Ya tienes una cuenta? <a href="login.php" style="color: white;">Iniciar sesión</a>
           </p>
         </form><br><br><br><br>
       </div>

@@ -5,12 +5,14 @@
 //Validacion del Registro . . . . . .
 function validarRegistracion() {
   $errores = [];
+  //USUARIO
+
   if (estaVacio($_POST["usuario"])) {
     $errores["usuario"] = "Es obligatorio llenar el campo Usuario.";
   }else if(strlen($_POST["usuario"]) < 4) {
     $errores["usuario"] = "El usuario debe tener al menos 5 digitos.";
   }
-
+  //CORREO ELECTRONICO
   if (estaVacio($_POST["email"])) {
     $errores["email"] = "Es obligatorio llenar el campo Correo Electronico.";
   }else if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
@@ -20,7 +22,7 @@ function validarRegistracion() {
   }else if(existeElEmail($_POST["email"])){
     $errores["email"] = "Este email ya esta en uso.";
   }
-
+  //CONFIRMACION DE CORREO ELECTRONICO
   if (estaVacio($_POST["confirmemail"])) {
     $errores["confirmemail"] = "Es obligatorio llenar el campo de Confirmacion del Correo Electronico.";
 }else if(filter_var($_POST["confirmemail"], FILTER_VALIDATE_EMAIL) == false){
@@ -31,6 +33,7 @@ if($_POST["email"] != "" && $_POST["confirmemail"] != "" && $_POST["email"] != $
   $errores["email"] = "Los correos no coinciden.";
 }
 
+  //CONTRASEÑA
 if (estaVacio($_POST["contraseña"])) {
   $errores["contraseña"] = "Es obligatorio llenar el campo Contraseña.";
 }
