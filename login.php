@@ -43,7 +43,7 @@ if ($_POST){
       <div class="boton">
       <button type="submit" name="button">Inciciar sesión</button>
       </div>
-      <p>¿No estas registrado?<a style="color: white;">Registrate</a></p>
+      <p style="color: white;">¿No estas registrado? <a href="register.login.php" style="color: white;">Registrate</a></p>
         </form><br><br><br><br>
       </div>
       <footer>
