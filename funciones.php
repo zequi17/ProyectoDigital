@@ -1,6 +1,35 @@
 <?php
+//Vakudacion de LOGIN . . . . . . . .
+function validarLogin() {
 
+  $errores2 = [];
 
+//VALIDACION CORREO . . . . . . .
+
+  if (estaVacio($_POST["correo"])){
+    $errores2["correo"] = "Por favor complete el campo Correo Electronico.";
+  }else if (filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) == false){
+    $errores2["correo"] = "El email debe ser valido.";
+  }else if (!existeElEmail("$_POST"["correo"])) {
+    $errores2["correo"] = "El Email no existe.";
+  }
+
+  //VALIDACION CONTRASEÑA . . . . . . .
+
+  if (estaVacio($_POST["contraseña"])) {
+    $errores2["contraseña"] = "Falta la contraseña.";
+  }
+
+  if (empty($errores2)){
+    $ususario = buscarUsuarioPorEmail($_POST["correo"]);
+
+    $hash = $usuario["contraseña"];
+
+    if (password_verify($_POST["contraseña"], $hash)){
+      $errores2["correo"] = "El email o la contraseña es incorrecto.";
+    }
+  }
+}
 
 //Validacion del Registro . . . . . .
 function validarRegistracion() {

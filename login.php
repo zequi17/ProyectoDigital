@@ -2,7 +2,7 @@
 require_once("funciones.php");
 //Login . . . . . .
 $errores2 = [];
-$emailDefault = "";
+$correoDefault = "";
 $contraseñaDefault = "";
 
 if ($_POST){
@@ -28,11 +28,17 @@ if ($_POST){
           <img src="images/Fondo.jpg" alt="fondo">
     <div class="padre">
       <a href="" class="titulo">SportsWear</a>
+      <?php foreach ($errores2 as $error2) : ?>
+        <li>
+          <?=$error2?>
+        </li>
+      <?php endforeach; ?>
+    </ul>
       <div class="formularioLogin" style="padding-left: 193px;">
       <p class="is">Iniciar sesión</p>
       <form class="login" action="register.login.php" method="POST" enctype="multipart/form-data">
         <p>
-          <input id="email" type="text" name="email" value="<?=$emailDefault?>" placeholder="Correo Electronico">
+          <input id="correo" type="text" name="correo" value="<?=$correoDefault?>" placeholder="Correo Electronico">
         </p>
         <div class="pass">
         <p>
