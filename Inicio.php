@@ -149,9 +149,6 @@
     <option value="">37</option>
     <option value="">38</option>
     <option value="">40</option>
-    <option value="">39</option>
-    <option value="">41</option>
-  </select>
 <h4>Colores:</h4>
   <select class="" name="Colores">
     <option value="">Rosa y Azul.</option>
@@ -164,8 +161,7 @@
   </div>
 </center>
 </div>
-
-<h4>Para realizar una compra, debe registrarse primero. Hazlo aca: <a href="registracion.html">Click aca</a> </h4>
+<h4>Para realizar una compra, debe registrarse primero. Hazlo aca: <a href="register.login.php">Click aca</a> </h4>
 
   </body>
 </html>
