@@ -10,7 +10,7 @@ function validarLogin() {
     $errores2["correo"] = "Por favor complete el campo Correo Electronico.";
   }else if (filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) == false){
     $errores2["correo"] = "El email debe ser valido.";
-  }else if (!existeElEmail("$_POST"["correo"])) {
+  }else if (!existeElEmail($_POST["correo"])) {
     $errores2["correo"] = "El Email no existe.";
   }
 

@@ -36,7 +36,7 @@ if ($_POST){
     </ul>
       <div class="formularioLogin" style="padding-left: 193px;">
       <p class="is">Iniciar sesión</p>
-      <form class="login" action="register.login.php" method="POST" enctype="multipart/form-data">
+      <form class="login" action="login.php" method="POST" enctype="multipart/form-data">
         <p>
           <input id="correo" type="text" name="correo" value="<?=$correoDefault?>" placeholder="Correo Electronico">
         </p>
