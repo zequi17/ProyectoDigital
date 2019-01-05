@@ -1,19 +1,19 @@
 <?php
 require_once("funciones.php");
 //Login . . . . . .
-$errores2 = [];
-$correoDefault = "";
+$errores = [];
+$emailDefault = "";
 $contraseñaDefault = "";
 
 if ($_POST){
-  $errores2 = validarLogin();
+  $errores = validarLogin();
 
-  if (count($errores2) == 0){
+  if (count($errores) == 0){
     //LOGUEARLO
 
     header("location:inicio.php");exit;
   }
-  $userDefault = $_POST["user"];
+  $emailDefault = $_POST["email"];
 }
 ?>
 <html lang="es" dir="ltr">
@@ -28,9 +28,9 @@ if ($_POST){
           <img src="images/Fondo.jpg" alt="fondo">
     <div class="padre">
       <a href="" class="titulo">SportsWear</a>
-      <?php foreach ($errores2 as $error2) : ?>
+      <?php foreach ($errores as $error) : ?>
         <li>
-          <?=$error2?>
+          <?=$error?>
         </li>
       <?php endforeach; ?>
     </ul>
@@ -38,7 +38,7 @@ if ($_POST){
       <p class="is">Iniciar sesión</p>
       <form class="login" action="login.php" method="POST" enctype="multipart/form-data">
         <p>
-          <input id="correo" type="text" name="correo" value="<?=$correoDefault?>" placeholder="Correo Electronico">
+          <input id="email" type="text" name="email" value="<?=$emailDefault?>" placeholder="Correo Electronico">
         </p>
         <div class="pass">
         <p>

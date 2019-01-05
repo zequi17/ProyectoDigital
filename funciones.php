@@ -2,33 +2,34 @@
 //Vakudacion de LOGIN . . . . . . . .
 function validarLogin() {
 
-  $errores2 = [];
+  $errores = [];
 
 //VALIDACION CORREO . . . . . . .
 
-  if (estaVacio($_POST["correo"])){
-    $errores2["correo"] = "Por favor complete el campo Correo Electronico.";
-  }else if (filter_var($_POST["correo"], FILTER_VALIDATE_EMAIL) == false){
-    $errores2["correo"] = "El email debe ser valido.";
+  if (estaVacio($_POST["email"])){
+    $errores["email"] = "Por favor complete el campo Correo Electronico.";
+  }else if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
+    $errores2["email"] = "El email debe ser valido.";
   }else if (!existeElEmail($_POST["correo"])) {
-    $errores2["correo"] = "El Email no existe.";
+    $errores2["email"] = "El Email no existe.";
   }
 
   //VALIDACION CONTRASEÑA . . . . . . .
 
   if (estaVacio($_POST["contraseña"])) {
-    $errores2["contraseña"] = "Falta la contraseña.";
+    $errores["contraseña"] = "Falta la contraseña.";
   }
 
-  if (empty($errores2)){
-    $ususario = buscarUsuarioPorEmail($_POST["correo"]);
+  if (empty($errores)){
+    $ususario = buscarUsuarioPorEmail($_POST["email"]);
 
     $hash = $usuario["contraseña"];
 
     if (password_verify($_POST["contraseña"], $hash)){
-      $errores2["correo"] = "El email o la contraseña es incorrecto.";
+      $errores2["email"] = "El email o la contraseña es incorrecto.";
     }
   }
+  return $errores;
 }
 
 //Validacion del Registro . . . . . .
