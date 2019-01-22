@@ -15,7 +15,7 @@ function validarLogin() {
   }
 
   //VALIDACION CONTRASEÑA . . . . . . .
-
+Luis
   if (estaVacio($_POST["contraseña"])) {
     $errores["contraseña"] = "Falta la contraseña.";
   }
