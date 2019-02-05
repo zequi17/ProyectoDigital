@@ -1,5 +1,9 @@
 <?php
 require_once("funciones.php");
+
+if (isset($_SESSION["emailUsuarioLogueado"])) {
+  header('location: inicio.php'); exit;
+}
 //Login . . . . . .
 $errores = [];
 $emailDefault = "";
@@ -10,7 +14,8 @@ if ($_POST){
 
   if (count($errores) == 0){
     //LOGUEARLO
-
+    $usuario = buscarUsuarioPorEmail($_POST["email"]);
+    $_SESSION["emailUsuarioLogueado"] = $usuario["email"];
     header("location:inicio.php");exit;
   }
   $emailDefault = $_POST["email"];
@@ -36,19 +41,20 @@ if ($_POST){
     </ul>
       <div class="formularioLogin" style="padding-left: 193px;">
       <p class="is">Iniciar sesión</p>
-      <form class="login" action="login.php" method="POST" enctype="multipart/form-data">
+      <form class="login" action="login.php" method="POST">
         <p>
           <input id="email" type="text" name="email" value="<?=$emailDefault?>" placeholder="Correo Electronico">
         </p>
         <div class="pass">
         <p>
-          <input id="contraseña" type="password" name="contraseña" value="<?=$contraseñaDefault?>" placeholder="Contraseña">
+          <input id="contraseña" type="password" name="contrasena" value="<?=$contraseñaDefault?>" placeholder="Contraseña">
         </p>
         </div>
+        <div class="boton">
+        <button type="submit" name="button">Iniciar sesión</button>
+        </div>
       </form>
-      <div class="boton">
-      <button type="submit" name="button">Inciciar sesión</button>
-      </div>
+
       <p style="color: white;">¿No estas registrado? <a href="register.login.php" style="color: white;">Registrate</a></p>
         </form><br><br><br><br>
       </div>

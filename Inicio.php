@@ -1,3 +1,10 @@
+<?php
+  require_once("funciones.php");
+  $user = null;
+  if (isset($_SESSION["emailUsuarioLogueado"])) {
+    $user = buscarUsuarioPorEmail($_SESSION["emailUsuarioLogueado"]);
+  }
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <link href='https://fonts.googleapis.com/css?family=Carter One' rel='stylesheet'>
@@ -11,6 +18,12 @@
 
      <h1>Sportswear: Ropa deportiva exclusiva.</h1>
     <h3>Tenemos las mejores remeras, camperas, pantalones y mas!</h3>
+    <?php if ($user): ?>
+      <p>Bienvenido <?php echo $user["user"] ?></p>
+      <a href="logout.php">Salir</a>
+      <a href="perfil.php">Mi perfil</a>
+    <?php endif; ?>
+
 </header>
 <main>
   <section id= "banner">

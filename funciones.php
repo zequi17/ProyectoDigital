@@ -1,4 +1,8 @@
 <?php
+
+require_once("com.php");
+session_start();
+
 //Vakudacion de LOGIN . . . . . . . .
 function validarLogin() {
 
@@ -10,22 +14,22 @@ function validarLogin() {
     $errores["email"] = "Por favor complete el campo Correo Electronico.";
   }else if (filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) == false){
     $errores2["email"] = "El email debe ser valido.";
-  }else if (!existeElEmail($_POST["correo"])) {
+  }else if (!existeElEmail($_POST["email"])) {
     $errores2["email"] = "El Email no existe.";
   }
 
   //VALIDACION CONTRASEÑA . . . . . . .
-Luis
-  if (estaVacio($_POST["contraseña"])) {
-    $errores["contraseña"] = "Falta la contraseña.";
+
+  if (estaVacio($_POST["contrasena"])) {
+    $errores["contrasena"] = "Falta la contraseña.";
   }
 
   if (empty($errores)){
-    $ususario = buscarUsuarioPorEmail($_POST["email"]);
+    $usuario = buscarUsuarioPorEmail($_POST["email"]);
 
-    $hash = $usuario["contraseña"];
+    $hash = $usuario["password"];
 
-    if (password_verify($_POST["contraseña"], $hash)){
+    if (password_verify($_POST["contrasena"], $hash)){
       $errores2["email"] = "El email o la contraseña es incorrecto.";
     }
   }
@@ -35,6 +39,8 @@ Luis
 //Validacion del Registro . . . . . .
 function validarRegistracion() {
   $errores = [];
+
+  // var_dump(existeElEmail($_POST["email"]), $_POST["email"]); exit;
   //USUARIO
 
   if (estaVacio($_POST["usuario"])) {
@@ -89,14 +95,15 @@ function estaVacio($campo) {
 function armarUsuario() {
   $ext = pathinfo($_FILES["avatar"]["name"], PATHINFO_EXTENSION);
   return [
-    "id" => traerProximoId(),
+    //cambiar
+
     "usuario" => ucfirst(trim($_POST["usuario"])),
     "email" => trim($_POST["email"]),
-    "contraseña" => password_hash($_POST["contraseña"], PASSWORD_DEFAULT),
+    "contrasena" => password_hash($_POST["contraseña"], PASSWORD_DEFAULT),
     "avatar" => uniqid() . "." . $ext,
   ];
 }
-
+//cambiar
 function traerProximoId() {
   $usuarios = traerUsuarios();
 
@@ -110,31 +117,34 @@ function traerProximoId() {
   var_dump($usuarios);exit;
 
 }
-
+//cambiar
 function traerUsuarios(){
-  $leerArchivo = file_get_contents("usuarios.json");
+  global $db;
 
-  if ($leerArchivo == "") {
-    return [];
-  }
+  $sql = "SELECT * FROM users";
 
-  $usuarios = json_decode($leerArchivo, true);
+  $consulta = $db->prepare($sql);
 
-  return $usuarios;
+  $consulta->execute();
+
+  return $consulta->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function guardarUsuario($usuario) {
-  $usuarios = traerUsuarios();
+  global $db;
 
-  $usuarios[] = $usuario;
 
-  $json = json_encode($usuarios);
-
-  file_put_contents("usuarios.json", $json);
+  $sql = "INSERT INTO usuarios values(default, :usuario, :email, :contrasena, :avatar)";
+  $consulta = $db->prepare($sql);
+  $consulta->bindvalue(":usuario",$usuario["usuario"]);
+  $consulta->bindvalue(":email",$usuario["email"]);
+  $consulta->bindvalue(":contrasena",$usuario["contrasena"]);
+  $consulta->bindvalue(":avatar",$usuario["avatar"]);
+  $consulta->execute();
 }
 
 function existeElEmail($email){
-  if (buscarUsuarioPorEmail($email) === null){
+  if (buscarUsuarioPorEmail($email) === false){
     return false;
   }else {
     return true;
@@ -142,14 +152,15 @@ function existeElEmail($email){
 }
 
 function buscarUsuarioPorEmail($email){
-  $usuarios = traerUsuarios();
+  global $db;
 
-  foreach ($usuarios as $usuario) {
-    if ($usuario["email"] == $email) {
-      return $usuario;
-    }
-  }
-  return null;
+  $sql = "SELECT * FROM usuarios WHERE email = :email";
+
+  $consulta = $db->prepare($sql);
+  $consulta->bindvalue(":email",$email);
+  $consulta->execute();
+  $resultado = $consulta->fetch(PDO::FETCH_ASSOC);
+  return $resultado;
 }
 
 function guardarAvatar($usuario) {

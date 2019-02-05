@@ -1,5 +1,10 @@
 <?php
   require_once("funciones.php");
+
+  if (isset($_SESSION["emailUsuarioLogueado"])) {
+    header('location: inicio.php'); exit;
+  }
+
 //Registracion . . . . . .
 if ($_FILES["avatar"]["error"] != 0) {
   echo "Hubo un error al cargar la imagen <br>";
