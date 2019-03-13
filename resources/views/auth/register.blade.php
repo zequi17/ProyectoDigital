@@ -11,40 +11,48 @@
   <body>
           <img src="../Fondo.jpg" alt="fondo">
     <div class="padre">
-      <a href="" class="titulo" style="padding-left: 53px;">SportsWear</a>
-      <ul style="color:red;background-color:black;">
+      <a href="/inicio" class="titulo" style="padding-left: 53px;">SportsWear</a>
+      @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
         <div class="formularioRegis" style="padding-left: 193px;">
           <!-- REGISTRACION -->
       <p class="regis">Registrate</p>
-        <form class="register" action="register.login.php" method="POST" enctype="multipart/form-data">
+        <form class="register" action="/register" method="POST" enctype="multipart/form-data">
+          {{csrf_field()}}
           <p>
-            <input id="usuario" type="text" name="usuario" value="" placeholder="Nombre">
+            <input id="nombre" type="text" name="nombre" value="{{old('name')}}" placeholder="Nombre">
           </p>
           <div class="pass">
             <input type="file" name="avatar" value="">
           </div>
           <div class="pass">
           <p>
-            <input id="email" type="text" name="email" value="" placeholder="Mi correo electronico">
+            <input id="email" type="text" name="email" value="{{old('email')}}" placeholder="Mi correo electronico">
           </p>
           </div>
           <div class="pass">
           <p>
-            <input id="password" type="text" name="password" value="" placeholder="Confirmar correo electronico">
+            <input id="password" type="password" name="contraseña" value="" placeholder="Contraseña">
           </p>
           </div>
           <div class="pass">
           <p>
-            <input id="passwordConfirm" type="password" name="passwordConfirm" value="" placeholder="Mi contraseña">
+            <input id="password_confirmation" type="password" name="password_confirmationfirm" value="" placeholder="confirmar contraseña">
           </p>
           </div>
           <div class="boton">
           <button type="submit" name="button">Crear perfil</button>
           </div>
-          <p style="color: white;">
-            ¿Ya tienes una cuenta? <a href="login.php" style="color: white;">Iniciar sesión</a>
-          </p>
         </form><br><br><br><br>
+        <a class="login" href="/login" style="color: white;">Iniciar sesión</a>
       </div>
       <footer>
         <ul>

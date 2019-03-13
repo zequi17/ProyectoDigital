@@ -10,10 +10,10 @@
   <body>
           <img src='../Fondo.jpg' alt="fondo">
     <div class="padre">
-      <a href="" class="titulo">SportsWear</a>
+      <a href="/inicio" class="titulo">SportsWear</a>
       <div class="formularioLogin" style="padding-left: 193px;">
       <p class="is">Iniciar sesión</p>
-      <form class="login" action="login.php" method="POST">
+      <form class="login" action="/login" method="POST">
         <p>
           <input id="email" type="text" name="email" value="" placeholder="Correo Electronico">
         </p>
@@ -26,9 +26,8 @@
         <button type="submit" name="button">Iniciar sesión</button>
         </div>
       </form>
-
       <p style="color: white;">¿No estas registrado? <a href="register.login.php" style="color: white;">Registrate</a></p>
-        </form><br><br><br><br>
+        <br><br><br><br>
       </div>
       <footer>
         <ul>
