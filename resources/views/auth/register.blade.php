@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="/css/register-login.css">
   </head>
   <body>
-          <img src="../Fondo.jpg" alt="fondo">
     <div class="padre">
       <a href="/inicio" class="titulo" style="padding-left: 53px;">SportsWear</a>
       @if ($errors->any())
@@ -21,6 +20,7 @@
         </ul>
     </div>
 @endif
+
 
         <div class="formularioRegis" style="padding-left: 193px;">
           <!-- REGISTRACION -->

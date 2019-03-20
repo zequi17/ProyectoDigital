@@ -1,3 +1,8 @@
+
+
+<!-- ESTO ES LA PAGINA -->
+
+HTML VIEJO
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -8,7 +13,7 @@
     <link rel="stylesheet" href="/css/register-login.css">
   </head>
   <body>
-          <img src='../Fondo.jpg' alt="fondo">
+
     <div class="padre">
       <a href="/inicio" class="titulo">SportsWear</a>
       <div class="formularioLogin" style="padding-left: 193px;">

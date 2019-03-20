@@ -3,29 +3,60 @@
   <head>
     <meta charset="utf-8">
     <title>@yield('titulo')</title>
-    <link rel="stylesheet" href="/css/inicio.css">
-    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
+    @yield('css')
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <body>
+    <div id="container">
     <header>
-      <!-- start nav -->
-      <nav id="menu">
-        <input id="buscador" type="search" name="search" value="" placeholder="Buscar producto">
-        <!--<h1>
-          asdasdasdasdsad
-        </h1>
-      <!-- start menu -->
-      <ul>
-       <li><a href="#">Ingresar</a>
-      <!-- start menu desplegable -->
-       <ul>
-       <li><a href="#">Login</a></li>
-       <li><a href="#">Register</a></li>
-       </ul>
-      <!-- end menu desplegable -->
-       </li>
+      <nav>
+        <div class="logo">
+          <a href="#">SportWear</a>
+        </div>
+        <form class="search" action="index.html" method="post">
+          <input type="search" name="search" value="" placeholder=" Buscar productos">
+          <button type="button" name="button">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <ul class="menu">
+          <li><a href="#">MARCAS <i class="fas fa-angle-double-down"></i></a>
+            <ul class="submenu">
+              <li><a href="#">NIKE</a></li>
+              <li><a href="#">ADIDAS</a></li>
+              <li><a href="#">PUMA</a></li>
+              <li><a href="#">TOPPER</a></li>
+            </ul>
+          </li>
+          <li><a href="#">CATEGORÍAS <i class="fas fa-angle-double-down"></i></a>
+            <ul class="submenu">
+              <li><a href="#">GORRAS</a></li>
+              <li><a href="#">REMERAS</a></li>
+              <li><a href="#">PANTALONES</a></li>
+              <li><a href="#">ZAPATILLAS</a></li>
+            </ul>
+          </li>
+          <li><a href="#">INGRESAR <i class="fas fa-angle-double-down"></i></a>
+            <ul class="submenu">
+              <li><a href="/login">INICIAR SESIÓN</a></li>
+              <li><a href="/register">REGISTRATE</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
     </header>
     @yield("contenido")
+    <footer>
+      <h2>Seguinos en nuestras Redes</h2>
+      <ul>
+        <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="https://www.twitter.com"><i class="fab fa-twitter-square"></i></a></li>
+        <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </footer>
+    </div>
+    <script src="js/inicio.js"></script>
   </body>
 </html>
