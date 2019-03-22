@@ -4,10 +4,6 @@ body{
   box-sizing: border-box;
   font-family: "Times New Roman", sans-serif;
 }
-#container{
-  display: flex;
-  flex-direction: column;
-}
 header{
   background-color: black;
   width: 100%;
@@ -62,26 +58,29 @@ a{
   width: 700px;
 }
 
-  /* ..... MENU ..... */
-.menu{
+  /* ////// MENU /////// */
+#logo-menu{
+  display: none;
+}
+#menu{
   padding: 0;
 }
-.menu li ul{
+#menu li ul{
   display: none;
-}.menu > li{
+}#menu > li{
   position: relative;
   width: 180px;
   display: inline-block;
 }
-.menu li a:hover{
+#menu li a:hover{
   color: red;
   background: rgb(105, 105, 105);
   transition: all .3s;
-}.menu > li > a{
+}#menu > li > a{
   display: block;
   padding: 15px 20px;
 }
-  /* ..... SUBMENU ..... */
+  /* ////////// SUBMENU /////////// */
 
 .submenu{
   position: absolute;
@@ -99,25 +98,72 @@ a{
   color: white;
   text-decoration: none;
 }
-.menu li:hover .submenu{
+#menu li:hover .submenu{
   display: block;
 }
 
-@media (min-width: 751px) and (max-width: 1000px){
-.logo{
-  margin-left: 35%;
+/* ///////////// FOOTER ///////////// */
+
+footer{
+  background: black;
+  display: flex;
+  bottom: 0;
+  position: absolute;
+  width: 100%;
 }
-.search{
-  width: 98%;
+footer h2{
+  color: red;
 }
+footer a{
+  display: inline-block;
 }
 
-@media (min-width: 540px) and (max-width: 751px) {
-.search{
+/* ///////////// Responsive Tablet - Movil //////////// */
+
+@media (max-width: 994px){
+header{
+  border-bottom: 1px solid red;
+}
+nav{
   display: flex;
-  width: 90%;
+  margin-bottom: 10px;
 }
 .logo{
-  margin-left: 28%;
+/*  margin-left: 20%; */
+}
+.search{
+  display: flex;
+  margin-left: 10px;
+  width: 80%;
+}
+#menu{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0;
+}
+#menu > li{
+  border-bottom: 1px solid rgba(199, 0, 0, 0.65);
+}
+#menu > li > a{
+  color: yellow;
+}
+.submenu{
+  position: relative;
+}
+#logo-menu{
+  display: inline-block;
+  margin-left: 0px;
+  margin-right: 6%;
+}
+#logo-menu a{
+  display: inline-block;
+  font-size: 35px;
+}
+#logo-menu i{
+  display: inline-block;
+  color: rgb(203, 36, 0);
+}
+#logo-menu a:hover{
+  color: red;
 }
 }
