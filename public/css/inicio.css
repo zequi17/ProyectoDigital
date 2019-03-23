@@ -40,6 +40,9 @@ a{
   color: white;
   display:block;
 }
+.search{
+  width: 400px;
+}
 .search button, i{
   color: rgb(203, 36, 0);
   background-color: black;
@@ -55,7 +58,7 @@ a{
   border-radius: 10px;
   border: solid;
   height: 50px;
-  width: 700px;
+  width: 91%;
 }
 
   /* ////// MENU /////// */
@@ -107,7 +110,7 @@ a{
 footer{
   background: black;
   display: flex;
-  bottom: 0;
+  margin-bottom: 0;
   position: absolute;
   width: 100%;
 }
@@ -116,6 +119,17 @@ footer h2{
 }
 footer a{
   display: inline-block;
+}
+
+/* /////// CONTENIDO ///////// */
+
+.container{
+
+}
+.imagen img{
+  height: 700px;
+  margin-top: 4%;
+  width: 100vw;
 }
 
 /* ///////////// Responsive Tablet - Movil //////////// */
@@ -166,4 +180,5 @@ nav{
 #logo-menu a:hover{
   color: red;
 }
+
 }

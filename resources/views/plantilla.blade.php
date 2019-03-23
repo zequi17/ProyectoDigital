@@ -21,8 +21,8 @@
             <i class="fas fa-search"></i>
           </button>
         </form>
-        <div id="logo-menu" onclick="desplegable" ><a href="#"><i class="fas fa-align-justify"></i></a></div>
-        <ul class="menu" id="menu">
+        <div id="logo-menu" ><a href="#"><i class="fas fa-align-justify"></i></a></div>
+        <ul id="menu">
           <li><a href="#">MARCAS <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li><a href="#">NIKE</a></li>
@@ -58,7 +58,7 @@
         <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </footer>
-    <script src="js/inicio.js"></script>
     <script src="http://localhost:35729/livereload.js"></script>
+    <script src="js/inicio.js"></script>
   </body>
 </html>
