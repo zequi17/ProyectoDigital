@@ -13,7 +13,7 @@
     <header>
       <nav>
         <div class="logo">
-          <a href="#">SportWear</a>
+          <a href="#" id="logo">SportWear</a>
         </div>
         <form class="search" action="index.html" method="post">
           <input type="search" name="search" value="" placeholder=" Buscar productos">
@@ -22,7 +22,7 @@
           </button>
         </form>
         <div id="logo-menu" ><a href="#"><i class="fas fa-align-justify"></i></a></div>
-        <ul id="menu">
+        <ul id="menu" class="menu">
           <li><a href="#">MARCAS <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li><a href="#">NIKE</a></li>
@@ -51,14 +51,13 @@
     </div>
     @yield("contenido")
     <footer>
-      <h2>Seguinos en nuestras Redes</h2>
-      <ul>
+      <h1>Seguinos en nuestras redes</h1>
+      <ul class="redes">
         <li><a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a></li>
         <li><a href="https://www.twitter.com"><i class="fab fa-twitter-square"></i></a></li>
         <li><a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a></li>
       </ul>
     </footer>
     <script src="http://localhost:35729/livereload.js"></script>
-    <script src="js/inicio.js"></script>
   </body>
 </html>

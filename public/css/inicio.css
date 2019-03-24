@@ -1,4 +1,4 @@
-body{
+*{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -27,6 +27,9 @@ nav{
   color: red;
   font-size: 55px;
 }
+.logo a:hover{
+  color: rgb(171, 0, 10);
+}
 ul{
   list-style: none;
   display: flex;
@@ -44,12 +47,12 @@ a{
   width: 400px;
 }
 .search button, i{
-  color: rgb(203, 36, 0);
+  color: rgb(168, 30, 0);
   background-color: black;
   border: 0;
 }
 .search i:hover{
-  color: rgb(246, 30, 30);
+  color: rgb(255, 0, 0);
 }
 .search input, button{
   font-size: 20px;
@@ -105,38 +108,85 @@ a{
   display: block;
 }
 
+
+/* ///////  SLIDER(CARRUSEL) ///////// */
+
+
+.slider{
+  margin: auto;
+  background: black;
+}
+.slider img{
+  display: inline-block;
+  width: 100vw;
+}
+
+.carrusel img{
+  height: 698px;
+  margin-top: 4%;
+  width: 100vw;
+}
+.botones{
+  background: black;
+  display: flex;
+  justify-content: space-around;
+  margin: 0;
+  height: 25px;
+  padding: 0;
+}
+.botones a{
+  display: inline-block;
+  font-size: 25px;
+}
+.botones a i{
+  display: inline-block;
+  color: rgb(237, 235, 7);
+}
+.botones a i:hover{
+  color: rgb(200, 204, 0);
+}
+
 /* ///////////// FOOTER ///////////// */
 
 footer{
   background: black;
   display: flex;
-  margin-bottom: 0;
+  bottom: 0;
   position: absolute;
-  width: 100%;
+  width: 100vw;
+  height: 65px;
+  justify-content: space-around;
+  align-items: center;
 }
-footer h2{
+footer h1{
+  color: white;
+  text-decoration: underline;
+}
+.redes a{
+  display: inline-block;
+  margin-left: 50px;
+}
+.redes i{
+  display: inline-block;
+  color: white;
+  font-size: 60px;
+}
+.redes i:hover{
   color: red;
 }
-footer a{
-  display: inline-block;
-}
+
 
 /* /////// CONTENIDO ///////// */
 
-.container{
 
-}
-.imagen img{
-  height: 700px;
-  margin-top: 4%;
-  width: 100vw;
-}
+
 
 /* ///////////// Responsive Tablet - Movil //////////// */
 
 @media (max-width: 994px){
 header{
   border-bottom: 1px solid red;
+  height: auto;
 }
 nav{
   display: flex;
@@ -150,15 +200,16 @@ nav{
   margin-left: 10px;
   width: 80%;
 }
-#menu{
+.menu{
   display: flex;
   flex-direction: column;
   margin-bottom: 0;
+  display: none;
 }
-#menu > li{
+.menu > li{
   border-bottom: 1px solid rgba(199, 0, 0, 0.65);
 }
-#menu > li > a{
+.menu > li > a{
   color: yellow;
 }
 .submenu{

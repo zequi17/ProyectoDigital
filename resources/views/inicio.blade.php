@@ -9,7 +9,15 @@
 @endsection
 
 @section('contenido')
-  <div class="imagen">
-  <img src="../euro_2016_players-wallpaper-1920x1080.jpg" alt="">
-  </div>
+<div class="slider">
+  <div class="carrusel">
+    <img src="../carrusel/carrusel1.jpg">
+        </div>
+        <div class="botones">
+    <a id="anterior"><i class="fas fa-angle-left"></i></a>
+    <a id="siguiente"><i class="fas fa-angle-right"></i></a>
+    </div>
+</div>
+<script src="js/inicio.js"></script>
+</body>
 @endsection
