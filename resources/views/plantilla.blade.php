@@ -3,14 +3,15 @@
   <head>
     <meta charset="utf-8">
     <title>@yield('titulo')</title>
-    @yield('css')
+    @yield('head')
+    <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   </head>
   <body>
-    <div id="container">
     <header>
+      <div class="container "id="container">
       <nav>
         <div class="logo">
           <a href="#" id="logo">SportWear</a>
@@ -22,8 +23,8 @@
           </button>
         </form>
         <div id="logo-menu" ><a href="#"><i class="fas fa-align-justify"></i></a></div>
-        <ul id="menu" class="menu">
-          <li><a href="#">MARCAS <i class="fas fa-angle-double-down"></i></a>
+        <ul class="menu">
+          <li class="ops"><a href="#">MARCAS <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li><a href="#">NIKE</a></li>
               <li><a href="#">ADIDAS</a></li>
@@ -31,15 +32,15 @@
               <li><a href="#">TOPPER</a></li>
             </ul>
           </li>
-          <li><a href="#">CATEGORÍAS <i class="fas fa-angle-double-down"></i></a>
+          <li class="ops"><a href="#">CATEGORÍAS <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
-              <li><a href="#">GORRAS</a></li>
-              <li><a href="#">REMERAS</a></li>
+              <li><a href="/register">GORRAS</a></li>
+              <li><a href="/login">REMERAS</a></li>
               <li><a href="#">PANTALONES</a></li>
               <li><a href="#">ZAPATILLAS</a></li>
             </ul>
           </li>
-          <li><a href="#">INGRESAR <i class="fas fa-angle-double-down"></i></a>
+          <li class="ops"><a href="#">INGRESAR <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li><a href="/login">INICIAR SESIÓN</a></li>
               <li><a href="/register">REGISTRATE</a></li>
@@ -47,8 +48,8 @@
           </li>
         </ul>
       </nav>
-    </header>
     </div>
+    </header>
     @yield("contenido")
     <footer>
       <h1>Seguinos en nuestras redes</h1>
@@ -59,5 +60,6 @@
       </ul>
     </footer>
     <script src="http://localhost:35729/livereload.js"></script>
+    <script src="js/nav.js"></script>
   </body>
 </html>
