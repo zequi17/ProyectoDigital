@@ -17,6 +17,7 @@
         <input type="text" name="name" value="" placeholder="Nombre *">
         <input type="text" name="surname" value="" placeholder="Apellido *">
         <input type="email" name="email" value="" placeholder="Correo electronico *">
+        <select id="paises" class="" name="paises"> </select>
         <input type="password" name="password" value="" placeholder="Contraseña *">
         <input type="password_confirmation" name="passwordConfirmation" value="" placeholder="Confirmar contraseña *">
         <button type="button" name="button">Registrate</button>
@@ -25,5 +26,6 @@
       </div>
         </div>
     <script src="http://localhost:35729/livereload.js"></script>
+    <script src="js/register.js"></script>
   </body>
 </html>

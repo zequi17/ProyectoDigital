@@ -37,7 +37,7 @@ header{
 }
 .formulario{
   background-color: rgb(73, 73, 73);
-  height: 85%;
+  height: 95vh;
   width: 89%;
   display: flex;
   justify-content: center;
@@ -48,28 +48,45 @@ header{
 .formulario p{
   font-size: 80px;
   color: yellow;
-  margin-bottom: 130px;
+  margin-bottom: 30px;
 }
 .form-login input, button{
-  font-size: 60px;
-  margin-bottom: 100px;
-  height: 130px;
+  font-size: 40px;
+  margin-bottom: 70px;
+  height: 8%;
   border-radius: 20px;
+  width: 90%;
+  margin-left: 5%;
 }
 .form-login input{
   border: 5px solid yellow;
 }
 .form-login button{
-  width: 100%;
+  width: 90%;
   background-color: yellow;
 
 }
 input, button{
   display: block;
 }
+#paises{
+  font-size: 40px;
+  margin-bottom: 70px;
+  height: 8%;
+  border-radius: 20px;
+  width: 90%;
+  margin-left: 5%;
+  border: 5px solid yellow;
+  color: grey;
+}
+#paises option{
+  font-size: 10px;
+}
+
 .formulario .registrate{
   color: blue;
-  font-size: 50px;
+  font-size: 40px;
+  margin-top: 90px;
 }
 
  /* //////// RESPONSIVE PC DE ESCRITORIO //////////// */
@@ -92,7 +109,7 @@ input, button{
   }
   .formulario p{
     font-size: 32px;
-    margin-bottom: 100px;
+    margin-bottom: 30px;
   }
   .form-login{
     width: 90%;
@@ -101,16 +118,32 @@ input, button{
     font-size: 20px;
     height: 45px;
     border-radius: 4px;
-    margin-bottom: 45px;
+    margin-bottom: 30px;
     border: 2px solid yellow;
+    width: 100%;
+    margin-left: 0;
+  }
+  .form-login button{
     width: 100%;
   }
   .form-login button:hover{
     background: rgb(190, 188, 3);
     border-color: rgb(190, 188, 3);
   }
+#paises{
+  font-size: 20px;
+  height: 45px;
+  border-radius: 4px;
+  margin-bottom: 30px;
+  width: 100%;
+  border: 2px solid yellow;
+  color: grey;
+  margin-left: 0;
+}
+
   .formulario .registrate{
     font-size: 22px;
+    margin-top: 0;
   }
   .formulario .registrate:hover{
     color: red;
