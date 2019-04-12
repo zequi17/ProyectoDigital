@@ -1,4 +1,7 @@
+var inputNombre = document.querySelector("");
 var selectPaises = document.getElementById("paises");
+var selectProvincias = document.getElementById("provincias");
+
 
 fetch('https://restcountries.eu/rest/v2/all')
   .then(function (response) {
@@ -15,3 +18,23 @@ fetch('https://restcountries.eu/rest/v2/all')
   .catch(function (error) {
     console.error(error);
   });
+
+
+function fetchAll(url, callback){
+  fetch(url)
+  .then(function(response){
+    return response.json();
+  })
+  .then(function(data){
+    callback(data);
+  })
+  .catch(function(error){
+    console.log(error);
+  });
+}
+
+function paisesProvincias(data){
+  for(var pais of data){
+    selectPaises.innerHTML += '<option>' + pais.state + '</option>';
+  }
+}

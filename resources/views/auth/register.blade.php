@@ -12,13 +12,23 @@
     </header>
     <div id="container">
       <div class="formulario">
-      <p>Registrate</p>
+      <h1>Registrate</h1>
       <form class="form-login" action="/login" method="post" enctype="multipart/form-data">
-        <input type="text" name="name" value="" placeholder="Nombre *">
-        <input type="text" name="surname" value="" placeholder="Apellido *">
-        <input type="email" name="email" value="" placeholder="Correo electronico *">
-        <select id="paises" class="" name="paises"> </select>
-        <input type="password" name="password" value="" placeholder="Contraseña *">
+        <div class="container">
+        <input type="text" id="name" name="name" value="" placeholder="Nombre *">
+        <div class="msj-error"></div>
+      </div>
+      <div class="container">
+        <input type="text" id="username" name="surname" value="" placeholder="Apellido *">
+        <div class="msj-error"></div>
+      </div>
+      <div class="container">
+        <input type="email" id="email" name="email" value="" placeholder="Correo electronico *">
+        <div class=""></div>
+      </div>
+        <select id="paises" class="" name="paises"></select>
+        <select id="provincias" class="hidden" name="paises"></select>
+        <input type="password" name="password" values="" placeholder="Contraseña *">
         <input type="password_confirmation" name="passwordConfirmation" value="" placeholder="Confirmar contraseña *">
         <button type="button" name="button">Registrate</button>
       </form>
