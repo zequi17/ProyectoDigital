@@ -103,6 +103,10 @@ input, button{
   font-size: 40px;
   margin-top: 40px;
 }
+.msj-error{
+  color: white;
+  margin-left: 5%;
+}
 
  /* //////// RESPONSIVE PC DE ESCRITORIO //////////// */
 
@@ -173,5 +177,7 @@ input, button{
   .formulario .registrate:hover{
     color: red;
   }
-
+  .msj-error{
+    margin-left: 0%;
+  }
 }
