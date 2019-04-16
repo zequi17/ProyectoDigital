@@ -28,11 +28,15 @@
       </div>
       <div class="container">
         <div class="msj-error"></div>
-        <select id="paises" class="" name="paises"></select>
+        <select id="paises" class="" name="paises">
+          <option value="">Pais *</option>
+        </select>
         </div>
       <div class="container">
         <div class="msj-error"></div>
-        <select id="provincias" class="hidden" name="paises"></select>
+        <select id="provincias" class="hidden" name="paises">
+          <option value="">Provincia *</option>
+        </select>
     </div>
     <div class="container">
       <div class="msj-error"></div>
