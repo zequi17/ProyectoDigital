@@ -5,15 +5,17 @@ var inputContraseña = document.getElementById("password");
 var inputContraseñaConfirm = document.getElementById("password-confirm");
 var selectPaises = document.getElementById("paises");
 var selectProvincias = document.getElementById("provincias");
+var containerProvincias = document.getElementById("cities");
 
+// Fetch PARA PAISES !!!.....
 
-fetch('https://restcountries.eu/rest/v2/all')
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (paises) {
-    for (pais of paises) {
-      selectPaises.innerHTML += '<option>' + pais.name + '</option>';
+// fetch('https://restcountries.eu/rest/v2/all')
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (paises) {
+//     for (pais of paises) {
+//       selectPaises.innerHTML += '<option>' + pais.name + '</option>';
 
       // .... ES LO MISMO QUE LO DE ARRIBA .....!
 
@@ -21,32 +23,40 @@ fetch('https://restcountries.eu/rest/v2/all')
       // var optionText = document.createTextNode(pais.name);
       // option.append(optionText);
       // selectPaises.append(option);
-    }
-  })
-  .catch(function (error) {
-    console.error(error);
-  });
+  //   }
+  // })
+  // .catch(function (error) {
+  //   console.error(error);
+  // });
 
+  function fetchCall (url, callback) {
+  	window.fetch(url)
+  		.then(function (response) {
+  			return response.json();
+  		})
+  		.then(function (data) {
+  			callback(data);
+  		})
+  		.catch(function (error) {
+  			console.log(error);
+  		});
+  }
 
-// function fetchAll(url, callback){
-//   fetch(url)
-//   .then(function(response){
-//     return response.json();
-//   })
-//   .then(function(data){
-//     callback(data);
-//   })
-//   .catch(function(error){
-//     console.log(error);
-//   });
-// }
-//
-// function provincias(data){
-//   for(var provincia of data){
-//     selectProvincias.innerHTML += '<option>' + provincia.state + '</option>';
-//   }
-// }
-//------------------ VALIDACIONES -------------------
+  function fillCitiesSelect (data) {
+  	for (var oneCity of data) {
+  		selectProvincias.innerHTML += '<option>' + oneCity.state + '</option>';
+  	}
+  }
+
+  function fillCountrySelect (data) {
+  	for (var oneCountrie of data) {
+  		selectPaises.innerHTML += '<option>' + oneCountrie.name + '</option>';
+  	}
+  }
+
+  fetchCall('https://restcountries.eu/rest/v2/all', fillCountrySelect);
+  fetchCall('https://dev.digitalhouse.com/api/getProvincias', fillCitiesSelect);
+
 
  /// VALIDACION DE CAMPO NOMBRE ...........
 
@@ -87,38 +97,87 @@ inputEmail.onblur = function(e){
   var email = this.value.trim();
   var divMsj = this.parentElement.querySelector('.msj-error');
   var regexEmail = /\S+@\S+\.\S+/;
-  if(!regexEmail.test(email)){
+  if(email == ''){
+    divMsj.innerHTML = 'El campo Email no debe estar vacio.';
+    inputEmail.style.border = '2px solid red';
+    e.preventDefault();
+  }
+  else if(email != '' && !regexEmail.test(email)){
     divMsj.innerHTML = 'Este campo debe ser de formato Email.'
     inputEmail.style.border = '2px solid red';
     e.preventDefault();
-  }else if(email == ''){
-    divMsj.innerHTML = 'El campo Email no debe estar vacio.';
-    e.preventDefault();
-  }
-  else{
+  }  else{
     divMsj.innerHTML = '';
     inputEmail.style.border = '2px solid green';
   }
 }
 
-// VALIDACION DE CAMPO PAIS .................
+// VALIDACION DE CAMPO CONTRASEÑA .............
 
-selectPaises.onchange = function(){
-  if(this.value === 'Argentina'){
-    selectProvincias.classList.remove('hidden');
-    fetchAll('https://dev.digitalhouse.com/api/getProvincias')
-    .then(function(response){
-      return response.json();
-    })
-    .then(function(data){
-      for(var provincia of data){
-        selectProvincias.innerHTML += '<option>' + provincia.state + '</option>';
-      })
-      .catch(function(error){
-        console.log(error);
-      })
-  }else {
-    selectProvincias.classList.add('hidden');
-    selectProvincias.innerHTML = '';
+inputContraseña.onblur = function(e){
+  var password = this.value.trim();
+  var divMsj = this.parentElement.querySelector('.msj-error');
+  if(password.length < 8){
+    divMsj.innerHTML = 'La contraseña debe tener como minimo 8 caracteres.'
+    this.style.border = '2px solid red';
+    e.preventDefault();
+  }else{
+    divMsj.innerHTML = '';
+    this.style.border = '2px solid green';
   }
 }
+
+// VALIDACION DE CAMPO CONFIRMACION DE CONTRASEÑA ..........
+
+inputContraseñaConfirm.onblur = function(e){
+  var passwordConfirm = this.value.trim();
+  var divMsj = this.parentElement.querySelector('.msj-error');
+  if(passwordConfirm.length < 8){
+    divMsj.innerHTML = 'La contraseña debe tener como minimo 8 caracteres.'
+    this.style.border = '2px solid red';
+    e.preventDefault();
+  }else if(passwordConfirm !== inputContraseña.value){
+    divMsj.innerHTML = 'Las contraseñas no coinciden.'
+    this.style.border = '2px solid red';
+    e.preventDefault();
+  }
+  else{
+    divMsj.innerHTML = '';
+    this.style.border = '2px solid green';
+  }
+}
+
+// VALIDACION DE CAMPO PAIS .................
+
+// selectPaises.onchange = function () {
+// 	if (this.value === 'Argentina') {
+// 		containerProvincias.classList.remove('hidden');
+// 		fetchCall('https://dev.digitalhouse.com/api/getProvincias', fillCitiesSelect);
+// 	} else {
+// 		containerProvincias.classList.add('hidden');
+// 		selectProvincias.innerHTML = '';
+// 	}
+// };
+
+
+// selectPaises.onchange = function(){
+//   if(this.value === 'Argentina'){
+//     selectProvincias.classList.remove('hidden');
+//   }else {
+//     selectProvincias.classList.add('hidden');
+//     selectProvincias.innerHTML = '';
+//   }
+// }
+
+// Fetch mal hecho !!
+// fetch('https://dev.digitalhouse.com/api/getProvincias')
+// .then(function(response){
+//   return response.json();
+// })
+// .then(function(provincias){
+//   for(var provincia of provincias){
+//     selectProvincias.innerHTML += '<option>' + provincia.state + '</option>';
+//   })
+//   .catch(function(error){
+//     console.log(error);
+//   })

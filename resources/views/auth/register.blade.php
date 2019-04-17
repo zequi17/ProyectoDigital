@@ -32,9 +32,9 @@
           <option value="">Pais *</option>
         </select>
         </div>
-      <div class="container">
+      <div class="container" id="cities">
         <div class="msj-error"></div>
-        <select id="provincias" class="hidden" name="paises">
+        <select id="provincias" name="provincias">
           <option value="">Provincia *</option>
         </select>
     </div>
@@ -44,7 +44,7 @@
         </div>
         <div class="container">
           <div class="msj-error"></div>
-        <input type="password_confirmation" id="password-confirm" name="passwordConfirmation" value="" placeholder="Confirmar contraseña *">
+        <input type="password" id="password-confirm" name="passwordConfirmation" value="" placeholder="Confirmar contraseña *">
         </div>
         <button type="button" name="button">Registrate</button>
       </form>
