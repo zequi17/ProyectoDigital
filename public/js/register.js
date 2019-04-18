@@ -149,6 +149,18 @@ inputContraseñaConfirm.onblur = function(e){
 
 // VALIDACION DE CAMPO PAIS .................
 
+selectPaises.onblur = function(e){
+  var divMsj = this.parentElement.querySelector('.msj-error');
+  if(this.value === ''){
+    divMsj.innerHTML = 'Debes selecccionar un país.';
+    this.style.border = '2px solid red';
+    e.preventDefault();
+  }else{
+    divMsj.innerHTML = '';
+    this.style.border = '2px solid green';
+  }
+}
+
 // selectPaises.onchange = function () {
 // 	if (this.value === 'Argentina') {
 // 		containerProvincias.classList.remove('hidden');

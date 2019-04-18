@@ -13,7 +13,7 @@
   </header>
   <div id="container">
     <div class="formulario">
-    <p>Iniciar sesión</p>
+    <h1>Iniciar sesión</h1>
     <form class="form-login" action="/login" method="post">
       <input type="email" name="email" value="" placeholder="Correo electronico *">
       <input type="password" name="password" value="" placeholder="Contraseña *">

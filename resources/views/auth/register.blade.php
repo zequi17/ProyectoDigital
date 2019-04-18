@@ -29,10 +29,10 @@
       <div class="container">
         <div class="msj-error"></div>
         <select id="paises" class="" name="paises">
-          <option value="">Pais *</option>
+          <option value="">Elegir país</option>
         </select>
         </div>
-      <div class="container" id="cities">
+      <div class="container hidden" id="cities">
         <div class="msj-error"></div>
         <select id="provincias" name="provincias">
           <option value="">Provincia *</option>
@@ -48,7 +48,7 @@
         </div>
         <button type="button" name="button">Registrate</button>
       </form>
-      <a class="registrate" href="/register">¿No estas registrado?</a>
+      <a class="registrate" href="/login">¿Ya tienes cuenta?</a>
       </div>
         </div>
     <script src="http://localhost:35729/livereload.js"></script>
