@@ -1,77 +1,58 @@
-@extends('layouts.app')
-
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Registrate</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/log-reg.css">
+  </head>
+  <body>
+    <header>
+      <a class="titulo" href="/inicio">SportWear</a>
+    </header>
+    <div id="container">
+      <div class="formulario">
+      <h1>Registrate</h1>
+      <form class="form-login" action="/register" method="post" enctype="multipart/form-data">
+        {{csrf_field()}}
+        <div class="container">
+          <div class="msj-error"></div>
+        <input type="text" id="name" name="name" value="" placeholder="Nombre *">
+      </div>
+      <div class="container">
+        <div class="msj-error"></div>
+        <input type="text" id="surname" name="surname" value="" placeholder="Apellido *">
+      </div>
+      <div class="container">
+        <div class="msj-error"></div>
+        <input type="email" id="email" name="email" value="" placeholder="Correo electronico *">
+      </div>
+      <div class="container">
+        <div class="msj-error"></div>
+        <select id="paises" class="" name="paises">
+          <option value="">Elegir país</option>
+        </select>
         </div>
+      <div class="container hidden" id="cities">
+        <div class="msj-error"></div>
+        <select id="provincias" name="provincias">
+          <option value="">Provincia *</option>
+        </select>
     </div>
-</div>
-@endsection
+    <div class="container">
+      <div class="msj-error"></div>
+        <input type="password"  id="password" name="password" values="" placeholder="Contraseña *">
+        </div>
+        <div class="container">
+          <div class="msj-error"></div>
+        <input type="password" id="password-confirm" name="passwordConfirmation" value="" placeholder="Confirmar contraseña *">
+        </div>
+        <button id="btn-submit" type="submit" name="button">Registrate</button>
+      </form>
+      <a class="registrate" href="/login">¿Ya tienes cuenta?</a>
+      </div>
+        </div>
+    <script src="http://localhost:35729/livereload.js"></script>
+    <script src="js/register.js"></script>
+  </body>
+</html>

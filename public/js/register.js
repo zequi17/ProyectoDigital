@@ -6,6 +6,7 @@ var inputContraseñaConfirm = document.getElementById("password-confirm");
 var selectPaises = document.getElementById("paises");
 var selectProvincias = document.getElementById("provincias");
 var containerProvincias = document.getElementById("cities");
+var btnSubmit = document.getElementById("btn-submit");
 
 // Fetch PARA PAISES !!!.....
 
@@ -57,6 +58,9 @@ var containerProvincias = document.getElementById("cities");
   fetchCall('https://restcountries.eu/rest/v2/all', fillCountrySelect);
   fetchCall('https://dev.digitalhouse.com/api/getProvincias', fillCitiesSelect);
 
+// CONTADOR DE ERRORES ..........
+
+var errores = 0;
 
  /// VALIDACION DE CAMPO NOMBRE ...........
 
@@ -66,6 +70,7 @@ inputNombre.onblur = function(e){
   if(nombre == '' || nombre.length < 3){
     divMsj.innerHTML = 'El Nombre debe tener al menos 3 caracteres.';
     inputNombre.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }
   else{
@@ -161,6 +166,14 @@ selectPaises.onblur = function(e){
   }
 }
 
+//BOTON DE REGISTRARSE ................
+
+btnSubmit.onclick = function(){
+  if(inputNombre === ""){
+   alert('El campo nombre esta mal');
+  }
+}
+
 // selectPaises.onchange = function () {
 // 	if (this.value === 'Argentina') {
 // 		containerProvincias.classList.remove('hidden');
@@ -170,7 +183,6 @@ selectPaises.onblur = function(e){
 // 		selectProvincias.innerHTML = '';
 // 	}
 // };
-asd
 
 // selectPaises.onchange = function(){
 //   if(this.value === 'Argentina'){
