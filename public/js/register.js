@@ -10,13 +10,13 @@ var btnSubmit = document.getElementById("btn-submit");
 
 // Fetch PARA PAISES !!!.....
 
-// fetch('https://restcountries.eu/rest/v2/all')
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (paises) {
-//     for (pais of paises) {
-//       selectPaises.innerHTML += '<option>' + pais.name + '</option>';
+fetch('https://restcountries.eu/rest/v2/all')
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (paises) {
+    for (pais of paises) {
+      selectPaises.innerHTML += '<option>' + pais.name + '</option>';
 
       // .... ES LO MISMO QUE LO DE ARRIBA .....!
 
@@ -24,39 +24,39 @@ var btnSubmit = document.getElementById("btn-submit");
       // var optionText = document.createTextNode(pais.name);
       // option.append(optionText);
       // selectPaises.append(option);
-  //   }
-  // })
-  // .catch(function (error) {
-  //   console.error(error);
-  // });
+    }
+  })
+  .catch(function (error) {
+    console.error(error);
+  });
 
-  function fetchCall (url, callback) {
-  	window.fetch(url)
-  		.then(function (response) {
-  			return response.json();
-  		})
-  		.then(function (data) {
-  			callback(data);
-  		})
-  		.catch(function (error) {
-  			console.log(error);
-  		});
-  }
-
-  function fillCitiesSelect (data) {
-  	for (var oneCity of data) {
-  		selectProvincias.innerHTML += '<option>' + oneCity.state + '</option>';
-  	}
-  }
-
-  function fillCountrySelect (data) {
-  	for (var oneCountrie of data) {
-  		selectPaises.innerHTML += '<option>' + oneCountrie.name + '</option>';
-  	}
-  }
-
-  fetchCall('https://restcountries.eu/rest/v2/all', fillCountrySelect);
-  fetchCall('https://dev.digitalhouse.com/api/getProvincias', fillCitiesSelect);
+  // function fetchCall (url, callback) {
+  // 	window.fetch(url)
+  // 		.then(function (response) {
+  // 			return response.json();
+  // 		})
+  // 		.then(function (data) {
+  // 			callback(data);
+  // 		})
+  // 		.catch(function (error) {
+  // 			console.log(error);
+  // 		});
+  // }
+  //
+  // function fillCitiesSelect (data) {
+  // 	for (var oneCity of data) {
+  // 		selectProvincias.innerHTML += '<option>' + oneCity.state + '</option>';
+  // 	}
+  // }
+  //
+  // function fillCountrySelect (data) {
+  // 	for (var oneCountrie of data) {
+  // 		selectPaises.innerHTML += '<option>' + oneCountrie.name + '</option>';
+  // 	}
+  // }
+  //
+  // fetchCall('https://restcountries.eu/rest/v2/all', fillCountrySelect);
+  // fetchCall('https://dev.digitalhouse.com/api/getProvincias', fillCitiesSelect);
 
 // CONTADOR DE ERRORES ..........
 
@@ -87,6 +87,7 @@ inputApellido.onblur = function(e){
   if(apellido == '' || apellido.length < 3){
     divMsj.innerHTML = 'El Apellido debe tener al menos 3 caracteres.';
     inputApellido.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }
   else{
@@ -105,11 +106,13 @@ inputEmail.onblur = function(e){
   if(email == ''){
     divMsj.innerHTML = 'El campo Email no debe estar vacio.';
     inputEmail.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }
   else if(email != '' && !regexEmail.test(email)){
     divMsj.innerHTML = 'Este campo debe ser de formato Email.'
     inputEmail.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }  else{
     divMsj.innerHTML = '';
@@ -125,6 +128,7 @@ inputContraseña.onblur = function(e){
   if(password.length < 8){
     divMsj.innerHTML = 'La contraseña debe tener como minimo 8 caracteres.'
     this.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }else{
     divMsj.innerHTML = '';
@@ -140,10 +144,12 @@ inputContraseñaConfirm.onblur = function(e){
   if(passwordConfirm.length < 8){
     divMsj.innerHTML = 'La contraseña debe tener como minimo 8 caracteres.'
     this.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }else if(passwordConfirm !== inputContraseña.value){
     divMsj.innerHTML = 'Las contraseñas no coinciden.'
     this.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }
   else{
@@ -159,6 +165,7 @@ selectPaises.onblur = function(e){
   if(this.value === ''){
     divMsj.innerHTML = 'Debes selecccionar un país.';
     this.style.border = '2px solid red';
+    errores++;
     e.preventDefault();
   }else{
     divMsj.innerHTML = '';
@@ -168,11 +175,21 @@ selectPaises.onblur = function(e){
 
 //BOTON DE REGISTRARSE ................
 
-btnSubmit.onclick = function(){
-  if(inputNombre === ""){
-   alert('El campo nombre esta mal');
-  }
-}
+// var nombre = inputNombre.value.trim();
+// var apellido = inputApellido.value.trim();
+// var email = inputEmail.value.trim();
+// var pais = selectPaises.value;
+// var contraseña = inputContraseña.value.trim();
+// var contraseñaConfirm = inputContraseñaConfirm.value.trim();
+
+// btnSubmit.onclick = function(){
+//   if(errores > 0){
+//    alert('Algunos campos del formulario estan mal.');
+//  }
+ //  if(nombre === '' && apellido === '' && email === '' && pais === '' && contraseña === '' && contraseñaConfirm === ''){
+ //   alert('Debes completar el formulario.');
+ // }
+// }
 
 // selectPaises.onchange = function () {
 // 	if (this.value === 'Argentina') {

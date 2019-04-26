@@ -29,7 +29,7 @@
       </div>
       <div class="container">
         <div class="msj-error"></div>
-        <select id="paises" class="" name="paises">
+        <select id="paises" class="" name="pais">
           <option value="">Elegir país</option>
         </select>
         </div>
