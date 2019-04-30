@@ -3,6 +3,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+html{
+  font-size: 62.5%; /** Reset para REMS - 62.5% = 10px de 16px **/
+}
 body{
   display: flex;
   flex-direction: column;
@@ -10,7 +13,7 @@ body{
 }
 header{
   background: rgb(73, 73, 73);
-  height: 150px;
+  height: 15rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -20,7 +23,7 @@ header{
 .titulo{
   color: yellow;
   display: inline-block;
-  font-size: 120px;
+  font-size: 12rem;
   text-decoration: none;
   font-family: 'Lobster', cursive;
 }
@@ -43,18 +46,18 @@ header{
   justify-content: center;
   align-items: center;
   flex-direction:column;
-  border-radius: 20px;
+  border-radius: 2rem;
 }
 .formulario h1{
-  font-size: 80px;
+  font-size: 8rem;
   color: yellow;
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 .form-login input, button{
-  font-size: 40px;
-  margin-bottom: 35px;
+  font-size: 4rem;
+  margin-bottom: 3rem;
   height: 8%;
-  border-radius: 20px;
+  border-radius: 2rem;
   width: 90%;
   margin-left: 5%;
 }
@@ -70,42 +73,59 @@ input, button{
   display: block;
 }
 #paises{
-  font-size: 40px;
-  margin-bottom: 35px;
+  font-size: 4rem;
+  margin-bottom: 3.5rem;
   height: 8%;
-  border-radius: 20px;
+  border-radius: 2rem;
   width: 90%;
   margin-left: 5%;
   border: 5px solid yellow;
   color: grey;
 }
 #paises option{
-  font-size: 10px;
+  font-size: 1rem;
 }
 #provincias{
-  font-size: 40px;
-  margin-bottom: 35px;
+  font-size: 4rem;
+  margin-bottom: 3.5rem;
   height: 8%;
-  border-radius: 20px;
+  border-radius: 2rem;
   width: 90%;
   margin-left: 5%;
   border: 5px solid yellow;
   color: grey;
 }
 #provincias{
-  font-size: 10px;
+  font-size: 1rem;
 } .hidden{
   display: none;
 }
 
 .formulario .registrate{
   color: blue;
-  font-size: 40px;
-  margin-top: 40px;
+  font-size: 4rem;
+  margin-top: 4rem;
+  display: inline-block;
 }
 .msj-error{
   color: white;
   margin-left: 5%;
+}
+/* //////// RESPONSIVE NOTEBOOK - NETBOOK - TABLET ///////// */
+
+@media (min-width: 450px) {
+
+
+  .formulario h1{
+    font-size: 5rem;
+    font-weight: 2px;
+  }
+  .formulario .registrate{
+    margin-top: 1rem;
+  }
+  #btn-submit{
+    margin-bottom: 0;
+  }
 }
 
  /* //////// RESPONSIVE PC DE ESCRITORIO //////////// */
@@ -119,25 +139,25 @@ input, button{
   height: auto;
   }
   header .titulo{
-    font-size: 50px;
+    font-size: 5rem;
   }
   .formulario{
-    height: 90%;
+    height: 96%;
     width: 40%;
-    border-radius: 10px;
+    border-radius: 1rem;
   }
   .formulario h1{
-    font-size: 32px;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
   }
   .form-login{
     width: 90%;
   }
   .form-login input, button{
-    font-size: 20px;
-    height: 45px;
-    border-radius: 4px;
-    margin-bottom: 10px;
+    font-size: 2rem;
+    height: 4.5rem;
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
     border: 2px solid yellow;
     width: 100%;
     margin-left: 0;
@@ -150,20 +170,20 @@ input, button{
     border-color: rgb(190, 188, 3);
   }
 #paises{
-  font-size: 20px;
-  height: 45px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  height: 4.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
   width: 100%;
   border: 2px solid yellow;
   color: grey;
   margin-left: 0;
 }
 #provincias{
-  font-size: 20px;
-  height: 45px;
-  border-radius: 4px;
-  margin-bottom: 10px;
+  font-size: 2rem;
+  height: 4.5rem;
+  border-radius: 0.4rem;
+  margin-bottom: 1rem;
   width: 100%;
   border: 2px solid yellow;
   color: grey;
@@ -171,7 +191,7 @@ input, button{
 }
 
   .formulario .registrate{
-    font-size: 22px;
+    font-size: 2.2rem;
     margin-top: 0;
   }
   .formulario .registrate:hover{

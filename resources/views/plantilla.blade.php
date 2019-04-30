@@ -14,7 +14,7 @@
       <div class="container "id="container">
       <nav>
         <div class="logo">
-          <a href="#" id="logo">SportWear</a>
+          <a href="/home" id="logo">SportWear</a>
         </div>
         <form class="search" action="index.html" method="post">
           <input type="search" name="search" value="" placeholder=" Buscar productos">
@@ -40,12 +40,24 @@
               <li><a href="#">ZAPATILLAS</a></li>
             </ul>
           </li>
+          @if (Auth::check())
+          <li>
+            {{Auth::user()->name}}
+          </li>
+          <li>
+            <form class="" action="/logout" method="post">
+              {{csrf_field()}}
+              <button type="submit" name="logout">Logout</button>
+            </form>
+          </li>
+          @else
           <li class="ops"><a href="#">INGRESAR <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li><a href="/login">INICIAR SESIÓN</a></li>
               <li><a href="/register">REGISTRATE</a></li>
             </ul>
           </li>
+          @endif
         </ul>
       </nav>
     </div>

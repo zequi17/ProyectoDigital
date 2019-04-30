@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <a class="titulo" href="/inicio">SportWear</a>
+      <a class="titulo" href="/home">SportWear</a>
     </header>
     <div id="container">
       <div class="formulario">

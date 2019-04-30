@@ -1,23 +1,30 @@
-@extends('layouts.app')
+@extends('plantilla')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+@section('titulo')
+  Bienvenido a SportWear
 @endsection
+
+@section('contenido')
+
+@endsection
+
+<ul>
+  @if (Auth::check())
+  <li>
+    {{Auth::user()->name . " " . Auth::user()->surname}}
+  </li>
+  <li>
+    <form class="" action="/logout" method="post">
+      {{csrf_field()}}
+      <button type="submit" name="logout">Logout</button>
+    </form>
+  </li>
+  @else
+    <li>
+      <a href="/register">Register</a>
+    </li>
+    <li>
+      <a href="/login">Login</a>
+    </li>
+    @endif
+</ul>
