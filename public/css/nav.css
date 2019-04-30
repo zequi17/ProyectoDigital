@@ -163,12 +163,12 @@ a{
 footer{
   display: flex;
   background: black;
-  margin-bottom: 0;
   position: absolute;
   width: 100%;
   height: 65px;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: auto;
 }
 footer h1{
   color: white;
@@ -255,9 +255,7 @@ nav{
 #logo-menu a:hover{
   color: red;
 }
-.submenu{
-  position: relative;
-}
+
 .slider{
   margin-top: 30%;
   height: auto;

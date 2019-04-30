@@ -41,15 +41,19 @@
             </ul>
           </li>
           @if (Auth::check())
-          <li>
-            {{Auth::user()->name}}
+
+          <li class="ops"><a href="#">{{Auth::user()->name}} <i class="fas fa-angle-double-down"></i></a>
+            <ul class="submenu">
+              <li>
+                <form class="" action="/logout" method="post">
+                  {{csrf_field()}}
+                  <button type="submit" name="logout">Logout</button>
+                </form>
+              </li>
+            </ul>
           </li>
-          <li>
-            <form class="" action="/logout" method="post">
-              {{csrf_field()}}
-              <button type="submit" name="logout">Logout</button>
-            </form>
-          </li>
+
+
           @else
           <li class="ops"><a href="#">INGRESAR <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
