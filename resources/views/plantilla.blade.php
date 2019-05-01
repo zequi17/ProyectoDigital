@@ -45,9 +45,9 @@
           <li class="ops"><a href="#">{{Auth::user()->name}} <i class="fas fa-angle-double-down"></i></a>
             <ul class="submenu">
               <li>
-                <form class="" action="/logout" method="post">
+                <form class="form-logout" action="/logout" method="post">
                   {{csrf_field()}}
-                  <button type="submit" name="logout">Logout</button>
+                  <button class="logout" type="submit" name="logout">Logout</button>
                 </form>
               </li>
             </ul>
