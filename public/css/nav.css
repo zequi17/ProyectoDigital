@@ -132,7 +132,7 @@ a{
   transition: all .3s;
   border-bottom: rgb(105, 105, 105);
 }
-
+/* Contenido de la pagina */
 
 /* ///////  SLIDER(CARRUSEL) ///////// */
 
@@ -177,7 +177,7 @@ a{
 footer{
   display: flex;
   background: black;
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 65px;
   justify-content: space-around;
