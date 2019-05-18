@@ -1,50 +1,45 @@
-@extends('plantilla')
-
-@section("titulo")
-Agregar producto
-@endsection
-
-@section("head")
-  <link rel="stylesheet" href="/css/agregar.css">
-@endsection
-
-@section("contenido")
-<div id="padre">
-
-<div class="container">
-
-  <h1>Agregar producto</h1>
-  <form class="form" action="/agregarProducto" method="post" enctype="multipart/form-data">
-    {{csrf_field()}}
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Agregar Productos</title>
+    <link rel="stylesheet" href="/css/agregar.css">
+  </head>
+  <body>
+    <head>
+      <a href="/home">SportWear</a>
+    </head>
     <div class="container">
-      <div class="msj-error"></div>
-    <input type="text" id="name" name="name" value="" placeholder="Nombre *">
-  </div>
-  <div class="container">
-  <div class="container">
-    <div class="msj-error"></div>
-    <input type="text" id="price" name="price" value="" placeholder="Precio *">
-  </div>
-  <div class="container">
-    <div class="msj-error"></div>
-    <select id="category" class="" name="category">
-      <option value="">Categoria</option>
-    </select>
-    </div>
-    <div class="msj-error"></div>
-    <select id="brand" name="brand">
-      <option value="">Marca *</option>
-    </select>
-</div>
-<div class="container">
-  <div class="msj-error"></div>
-    <input type="password"  id="password" name="password" values="" placeholder="Contraseña *">
-    </div>
-    <button id="btn-submit" type="submit" name="button">Agregar producto</button>
-  </form>
+      <h1>Agregar producto</h1>
+      <form class="" action="/agregar" method="post">
+        {{csrf_field()}}
+        <div class="nombre">
+          <label for="name">Nombre</label>
+          <input type="text" name="name" value="">
+        </div>
 
-  </div>
-</div>
-<script src="http://localhost:35729/livereload.js"></script>
-<script src="js/register.js"></script>
-@endsection
+        <div class="precio">
+          <label for="price">Precio</label>
+          <input type="text" name="price" value="">
+        </div>
+
+        <div class="categoria">
+          <select class="categories" name="">
+            <option value="1">Categoria</option>
+            <option value="2">zapato</option>
+          </select>
+        </div>
+
+        <div class="marca">
+          <select class="brand" name="">
+            <option value="1">Marca</option>
+            <option value="2" name="2" >asdasd</option>
+          </select>
+        </div>
+
+        <button type="submit" name="button">AGREGAR</button>
+
+      </form>
+    </div>
+  </body>
+</html>

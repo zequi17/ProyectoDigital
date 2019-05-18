@@ -9,6 +9,6 @@ class Brand extends Model
     public $guarded = [];
 
     public function products() {
-      return $this->hasMany(Product::class, "brand_id");
+      return $this->hasMan                                         y(Product::class, "brand_id");
     }
 }
