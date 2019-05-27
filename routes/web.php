@@ -30,4 +30,4 @@ Route::get('/agregar', function(){
   return view("agregarProducto");
 });
 
-Route::post('/agregar', 'ProductoController@agregar');
+Route::post('/agregar', 'ProductsController@agregar');
