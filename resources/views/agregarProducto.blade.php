@@ -4,14 +4,17 @@
     <meta charset="utf-8">
     <title>Agregar Productos</title>
     <link rel="stylesheet" href="/css/agregar.css">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
       <a href="/">SportWear</a>
     </header>
     <div class="container">
+
+    <div class="container-form">
       <h1>Agregar producto</h1>
-      <form class="" action="/agregar" method="post" enctype="multipart/form-data">
+      <form class="form" action="/agregar" method="post" enctype="multipart/form-data">
         {{csrf_field()}}
         <div class="nombre">
           <label for="name">Nombre</label>
@@ -51,6 +54,7 @@
         <button type="submit" name="button">AGREGAR</button>
         </div>
       </form>
+    </div>
     </div>
     <script src="http://localhost:35729/livereload.js"></script>
   </body>
