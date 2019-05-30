@@ -27,29 +27,35 @@ header a:hover{
 h1{
   color: yellow;
   font-size: 2.8rem;
+  margin-bottom: 3.5rem;
 }
 .container{
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
 }
 .container-form{
   background: black;
   width: 50rem;
-  height: 70%;
-  margin-top: 6rem;
+  height: 78vh;
+  margin-top: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  border-radius: 20px;
 }
 label, input{
-  color: white;
   display: block;
   width: 100%;
 }
 label{
   font-size: 1.6rem;
-  margin-top: 10px;
+  color: white;
+}
+input, select, button{
+  height: 2.6rem;
+  width: 100%;
+  margin-bottom: 1.5rem;
 }
