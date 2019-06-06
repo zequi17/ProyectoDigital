@@ -19,6 +19,7 @@
         <div class="nombre">
           <label for="name">Nombre</label>
           <input type="text" name="name" value="">
+
         </div>
 
         <div class="precio">
@@ -48,6 +49,8 @@
             <option value="2">Nike</option>
             <option value="3">Puma</option>
             <option value="4">Topper</option>
+            <option value="5">Converse</option>
+            <option value="6">New Balance</option>
           </select>
         </div>
         <div class="boton">

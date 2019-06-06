@@ -18,6 +18,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/', 'ProductsController@allProducts');
+
+Route::get('/agregar', 'CategoriesController@allCategories');
+
+Route::get('/agregar', 'BrandsController@allBrands');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

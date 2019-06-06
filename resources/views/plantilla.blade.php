@@ -30,6 +30,8 @@
               <li><a href="#">ADIDAS</a></li>
               <li><a href="#">PUMA</a></li>
               <li><a href="#">TOPPER</a></li>
+              <li><a href="#">CONVERSE</a></li>
+              <li><a href="#">NEW BALANCE</a></li>
             </ul>
           </li>
           <li class="ops"><a href="#">CATEGORÍAS <i class="fas fa-angle-double-down"></i></a>

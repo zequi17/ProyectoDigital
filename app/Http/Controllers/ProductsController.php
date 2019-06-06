@@ -25,8 +25,8 @@ class ProductsController extends Controller
       return redirect("/");
     }
 
-    public function productos(){
-      $products = Product::paginate();
+    public function allProducts(){
+      $products = Product::all();
 
       return view("welcome", compact("products"));
     }
